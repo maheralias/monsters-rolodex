@@ -3,9 +3,11 @@ import './card.styles.css'
 
 
 export const Card = props => (
-    return (
-        <div>
-            
+    
+        <div className='card-container'>
+            <h2 key={props.monster.id}>
+                        {props.monster.name}
+                    </h2>
         </div>
-            )
+            
 )
