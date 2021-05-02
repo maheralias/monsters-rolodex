@@ -7,6 +7,7 @@ import { SearchBox } from './components/search-box/search-box.component';
 class App extends Component {
   constructor(){
     super();
+    this.handleClick2= this.handleClick1.bind(this);
     this.state = {
       string : 'Hello Maher',
       searchField : '',
@@ -22,7 +23,16 @@ class App extends Component {
     // const saje = fetch('http://jsonplaceholder.typicode.com/users')
     // saje.then(response => response.json())
     // .then(users => this.setState({monsters:[{name:'Maher'}]}) )
-  }s
+  }
+
+  handleClick1(){
+    console.log('Button 1 Clicked')
+  }
+  handleClick3 = () => {
+    console.log('Button 3 Clicked')
+  }
+  
+  
   render() {
     const { searchField, monsters} = this.state;
     const filteredMonsters = monsters.filter(monster => monster.name.toLowerCase().includes(searchField.toLowerCase()))
@@ -32,6 +42,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           
             Edit <code>src/App.js</code> and save to reload. 
+            <button onClick={this.handleClick1()}>CLick 1</button>
+            <button onClick={this.handleClick1}>CLick 2</button>
+            <button onClick={this.handleClick2}>CLick 3</button>
+            <button onClick={this.handleClick3}>CLick 4</button>
+
             {/* <input type='search' placeholder='Search Monster' onChange={e=>this.setState({searchField:e.target.value})}/> */}
             <SearchBox placeholder='Search Monster' handleChange={e=>this.setState({searchField:e.target.value})}></SearchBox>
             <p>
